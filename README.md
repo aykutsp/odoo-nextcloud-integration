@@ -1,5 +1,11 @@
 # Odoo Nextcloud Integration
 
+![Odoo 18](https://img.shields.io/badge/Odoo-18.0-714B67?style=flat-square)
+![Python](https://img.shields.io/badge/Python-3.x-3776AB?style=flat-square)
+![Nextcloud](https://img.shields.io/badge/Nextcloud-WebDAV-0082C9?style=flat-square)
+![License](https://img.shields.io/badge/License-LGPL--3-blue?style=flat-square)
+![Status](https://img.shields.io/badge/Status-Production--oriented-success?style=flat-square)
+
 Professional Nextcloud document management for Odoo 18. This repository
 contains a production-oriented Odoo add-on suite that stores business
 documents in Nextcloud through WebDAV while keeping access control, metadata,
