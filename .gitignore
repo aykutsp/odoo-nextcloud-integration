@@ -1,0 +1,31 @@
+# Python / Odoo runtime
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Local environments
+.venv/
+venv/
+env/
+.env
+.env.*
+
+# Editors / OS
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Build artifacts and exported module packages
+*.zip
+dist/
+build/
+
+# Logs
+*.log

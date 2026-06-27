@@ -1,0 +1,330 @@
+<odoo>
+  <data noupdate="1">
+    <record id="category_crm_00_confidentiality" model="nextcloud.document.category">
+        <field name="name">Gizlilik Sözleşmesi</field>
+        <field name="folder_name">00 - Gizlilik Sözleşmesi</field>
+        <field name="model_name">crm.lead</field>
+        <field name="sequence">0</field>
+    </record>
+    <record id="category_crm_01_customer_documents" model="nextcloud.document.category">
+        <field name="name">Müşteriden Gelen Dokümanlar</field>
+        <field name="folder_name">01 - Müşteriden Gelen Dokümanlar</field>
+        <field name="model_name">crm.lead</field>
+        <field name="sequence">10</field>
+    </record>
+    <record id="category_crm_02_gani_offers" model="nextcloud.document.category">
+        <field name="name">GANİ Teklifleri</field>
+        <field name="folder_name">02 - GANİ Teklifleri</field>
+        <field name="model_name">crm.lead</field>
+        <field name="sequence">20</field>
+    </record>
+    <record id="category_crm_03_supplier_offers" model="nextcloud.document.category">
+        <field name="name">Tedarikçi Teklifleri</field>
+        <field name="folder_name">03 - Tedarikçi Teklifleri</field>
+        <field name="model_name">crm.lead</field>
+        <field name="sequence">30</field>
+    </record>
+    <record id="category_crm_04_meeting_notes" model="nextcloud.document.category">
+        <field name="name">Toplantı Notları</field>
+        <field name="folder_name">04 - Toplantı Notları</field>
+        <field name="model_name">crm.lead</field>
+        <field name="sequence">40</field>
+    </record>
+    <record id="category_crm_05_contract" model="nextcloud.document.category">
+        <field name="name">Sözleşme</field>
+        <field name="folder_name">05 - Sözleşme</field>
+        <field name="model_name">crm.lead</field>
+        <field name="sequence">50</field>
+    </record>
+    <record id="category_crm_06_guarantee" model="nextcloud.document.category">
+        <field name="name">Teminat Mektubu</field>
+        <field name="folder_name">06 - Teminat Mektubu</field>
+        <field name="model_name">crm.lead</field>
+        <field name="sequence">60</field>
+    </record>
+
+    <record id="category_project_01_management" model="nextcloud.document.category">
+        <field name="name">Yönetim</field>
+        <field name="folder_name">01 - Yönetim</field>
+        <field name="model_name">project.project</field>
+        <field name="sequence">10</field>
+    </record>
+    <record id="category_project_02_engineering" model="nextcloud.document.category">
+        <field name="name">Mühendislik</field>
+        <field name="folder_name">02 - Mühendislik</field>
+        <field name="model_name">project.project</field>
+        <field name="sequence">20</field>
+    </record>
+    <record id="category_project_03_purchasing" model="nextcloud.document.category">
+        <field name="name">Satın Alma</field>
+        <field name="folder_name">03 - Satın Alma</field>
+        <field name="model_name">project.project</field>
+        <field name="sequence">30</field>
+    </record>
+    <record id="category_project_04_production" model="nextcloud.document.category">
+        <field name="name">Üretim</field>
+        <field name="folder_name">04 - Üretim</field>
+        <field name="model_name">project.project</field>
+        <field name="sequence">40</field>
+    </record>
+    <record id="category_project_05_commissioning" model="nextcloud.document.category">
+        <field name="name">Devreye Alma</field>
+        <field name="folder_name">05 - Devreye Alma</field>
+        <field name="model_name">project.project</field>
+        <field name="sequence">50</field>
+    </record>
+    <record id="category_project_06_certificates" model="nextcloud.document.category">
+        <field name="name">Sertifikalar</field>
+        <field name="folder_name">06 - Sertifikalar</field>
+        <field name="model_name">project.project</field>
+        <field name="sequence">60</field>
+    </record>
+    <record id="category_project_07_final_documents" model="nextcloud.document.category">
+        <field name="name">Final Dokümanlar</field>
+        <field name="folder_name">07 - Final Dokümanlar</field>
+        <field name="model_name">project.project</field>
+        <field name="sequence">70</field>
+    </record>
+    <record id="category_project_management_01_meeting_notes" model="nextcloud.document.category">
+        <field name="name">Toplantı Notları</field>
+        <field name="folder_name">01 - Toplantı Notları</field>
+        <field name="model_name">project.project</field>
+        <field name="parent_id" ref="category_project_01_management"/>
+        <field name="sequence">10</field>
+    </record>
+    <record id="category_project_management_02_timeline" model="nextcloud.document.category">
+        <field name="name">Zaman Planı</field>
+        <field name="folder_name">02 - Zaman Planı</field>
+        <field name="model_name">project.project</field>
+        <field name="parent_id" ref="category_project_01_management"/>
+        <field name="sequence">20</field>
+    </record>
+    <record id="category_project_management_03_customer_correspondence" model="nextcloud.document.category">
+        <field name="name">Müşteri Yazışmaları</field>
+        <field name="folder_name">03 - Müşteri Yazışmaları</field>
+        <field name="model_name">project.project</field>
+        <field name="parent_id" ref="category_project_01_management"/>
+        <field name="sequence">30</field>
+    </record>
+
+    <record id="category_project_engineering_01_mechanical" model="nextcloud.document.category">
+        <field name="name">Mekanik</field>
+        <field name="folder_name">01 - Mekanik</field>
+        <field name="model_name">project.project</field>
+        <field name="parent_id" ref="category_project_02_engineering"/>
+        <field name="sequence">10</field>
+    </record>
+    <record id="category_project_engineering_02_electrical" model="nextcloud.document.category">
+        <field name="name">Elektrik</field>
+        <field name="folder_name">02 - Elektrik</field>
+        <field name="model_name">project.project</field>
+        <field name="parent_id" ref="category_project_02_engineering"/>
+        <field name="sequence">20</field>
+    </record>
+    <record id="category_project_engineering_03_plc" model="nextcloud.document.category">
+        <field name="name">PLC</field>
+        <field name="folder_name">03 - PLC</field>
+        <field name="model_name">project.project</field>
+        <field name="parent_id" ref="category_project_02_engineering"/>
+        <field name="sequence">30</field>
+    </record>
+    <record id="category_project_engineering_04_robot" model="nextcloud.document.category">
+        <field name="name">Robot</field>
+        <field name="folder_name">04 - Robot</field>
+        <field name="model_name">project.project</field>
+        <field name="parent_id" ref="category_project_02_engineering"/>
+        <field name="sequence">40</field>
+    </record>
+    <record id="category_project_engineering_05_vision" model="nextcloud.document.category">
+        <field name="name">Vision</field>
+        <field name="folder_name">05 - Vision</field>
+        <field name="model_name">project.project</field>
+        <field name="parent_id" ref="category_project_02_engineering"/>
+        <field name="sequence">50</field>
+    </record>
+    <record id="category_project_engineering_06_driver" model="nextcloud.document.category">
+        <field name="name">Driver</field>
+        <field name="folder_name">06 - Driver</field>
+        <field name="model_name">project.project</field>
+        <field name="parent_id" ref="category_project_02_engineering"/>
+        <field name="sequence">60</field>
+    </record>
+    <record id="category_project_08_software" model="nextcloud.document.category">
+        <field name="name">Yazılım</field>
+        <field name="folder_name">07 - Yazılım</field>
+        <field name="model_name">project.project</field>
+        <field name="parent_id" ref="category_project_02_engineering"/>
+        <field name="sequence">70</field>
+    </record>
+
+    <record id="category_project_purchasing_01_confidentiality" model="nextcloud.document.category">
+        <field name="name">Gizlilik Sözleşmesi</field>
+        <field name="folder_name">01 - Gizlilik Sözleşmesi</field>
+        <field name="model_name">project.project</field>
+        <field name="parent_id" ref="category_project_03_purchasing"/>
+        <field name="sequence">10</field>
+    </record>
+    <record id="category_project_purchasing_02_offers" model="nextcloud.document.category">
+        <field name="name">Teklifler</field>
+        <field name="folder_name">02 - Teklifler</field>
+        <field name="model_name">project.project</field>
+        <field name="parent_id" ref="category_project_03_purchasing"/>
+        <field name="sequence">20</field>
+    </record>
+    <record id="category_project_purchasing_03_orders" model="nextcloud.document.category">
+        <field name="name">Siparişler</field>
+        <field name="folder_name">03 - Siparişler</field>
+        <field name="model_name">project.project</field>
+        <field name="parent_id" ref="category_project_03_purchasing"/>
+        <field name="sequence">30</field>
+    </record>
+    <record id="category_project_purchasing_04_supplier_documents" model="nextcloud.document.category">
+        <field name="name">Tedarikçi Dokümanları</field>
+        <field name="folder_name">04 - Tedarikçi Dokümanları</field>
+        <field name="model_name">project.project</field>
+        <field name="parent_id" ref="category_project_03_purchasing"/>
+        <field name="sequence">40</field>
+    </record>
+
+    <record id="category_project_production_01_panel_photos" model="nextcloud.document.category">
+        <field name="name">Pano Fotoğrafları</field>
+        <field name="folder_name">01 - Pano Fotoğrafları</field>
+        <field name="model_name">project.project</field>
+        <field name="parent_id" ref="category_project_04_production"/>
+        <field name="sequence">10</field>
+    </record>
+    <record id="category_project_production_02_field_photos" model="nextcloud.document.category">
+        <field name="name">Saha Fotoğrafları</field>
+        <field name="folder_name">02 - Saha Fotoğrafları</field>
+        <field name="model_name">project.project</field>
+        <field name="parent_id" ref="category_project_04_production"/>
+        <field name="sequence">20</field>
+    </record>
+    <record id="category_project_production_03_control_forms" model="nextcloud.document.category">
+        <field name="name">Üretim Kontrol Formları</field>
+        <field name="folder_name">03 - Üretim Kontrol Formları</field>
+        <field name="model_name">project.project</field>
+        <field name="parent_id" ref="category_project_04_production"/>
+        <field name="sequence">30</field>
+    </record>
+
+    <record id="category_project_commissioning_01_fat" model="nextcloud.document.category">
+        <field name="name">FAT</field>
+        <field name="folder_name">01 - FAT</field>
+        <field name="model_name">project.project</field>
+        <field name="parent_id" ref="category_project_05_commissioning"/>
+        <field name="sequence">10</field>
+    </record>
+    <record id="category_project_commissioning_02_sat" model="nextcloud.document.category">
+        <field name="name">SAT</field>
+        <field name="folder_name">02 - SAT</field>
+        <field name="model_name">project.project</field>
+        <field name="parent_id" ref="category_project_05_commissioning"/>
+        <field name="sequence">20</field>
+    </record>
+    <record id="category_project_commissioning_03_field_photos" model="nextcloud.document.category">
+        <field name="name">Saha Fotoğrafları</field>
+        <field name="folder_name">03 - Saha Fotoğrafları</field>
+        <field name="model_name">project.project</field>
+        <field name="parent_id" ref="category_project_05_commissioning"/>
+        <field name="sequence">30</field>
+    </record>
+    <record id="category_project_commissioning_04_videos" model="nextcloud.document.category">
+        <field name="name">Videolar</field>
+        <field name="folder_name">04 - Videolar</field>
+        <field name="model_name">project.project</field>
+        <field name="parent_id" ref="category_project_05_commissioning"/>
+        <field name="sequence">40</field>
+    </record>
+
+    <record id="category_project_certificates_01_ce" model="nextcloud.document.category">
+        <field name="name">CE</field>
+        <field name="folder_name">01 - CE</field>
+        <field name="model_name">project.project</field>
+        <field name="parent_id" ref="category_project_06_certificates"/>
+        <field name="sequence">10</field>
+    </record>
+    <record id="category_project_certificates_02_test_reports" model="nextcloud.document.category">
+        <field name="name">Test Raporları</field>
+        <field name="folder_name">02 - Test Raporları</field>
+        <field name="model_name">project.project</field>
+        <field name="parent_id" ref="category_project_06_certificates"/>
+        <field name="sequence">20</field>
+    </record>
+    <record id="category_project_certificates_03_calibration" model="nextcloud.document.category">
+        <field name="name">Kalibrasyon Belgeleri</field>
+        <field name="folder_name">03 - Kalibrasyon Belgeleri</field>
+        <field name="model_name">project.project</field>
+        <field name="parent_id" ref="category_project_06_certificates"/>
+        <field name="sequence">30</field>
+    </record>
+    <record id="category_project_certificates_04_component" model="nextcloud.document.category">
+        <field name="name">Komponent Sertifikaları</field>
+        <field name="folder_name">04 - Komponent Sertifikaları</field>
+        <field name="model_name">project.project</field>
+        <field name="parent_id" ref="category_project_06_certificates"/>
+        <field name="sequence">40</field>
+    </record>
+
+    <record id="category_project_final_01_customer_delivery" model="nextcloud.document.category">
+        <field name="name">Müşteriye Teslim Edilen Son Dosyalar</field>
+        <field name="folder_name">01 - Müşteriye Teslim Edilen Son Dosyalar</field>
+        <field name="model_name">project.project</field>
+        <field name="parent_id" ref="category_project_07_final_documents"/>
+        <field name="sequence">10</field>
+    </record>
+    <record id="category_project_final_02_eplan" model="nextcloud.document.category">
+        <field name="name">Final E-Plan</field>
+        <field name="folder_name">02 - Final E-Plan</field>
+        <field name="model_name">project.project</field>
+        <field name="parent_id" ref="category_project_07_final_documents"/>
+        <field name="sequence">20</field>
+    </record>
+    <record id="category_project_final_03_plc" model="nextcloud.document.category">
+        <field name="name">Final PLC Backup</field>
+        <field name="folder_name">03 - Final PLC Backup</field>
+        <field name="model_name">project.project</field>
+        <field name="parent_id" ref="category_project_07_final_documents"/>
+        <field name="sequence">30</field>
+    </record>
+    <record id="category_project_final_04_robot" model="nextcloud.document.category">
+        <field name="name">Final Robot Backup</field>
+        <field name="folder_name">04 - Final Robot Backup</field>
+        <field name="model_name">project.project</field>
+        <field name="parent_id" ref="category_project_07_final_documents"/>
+        <field name="sequence">40</field>
+    </record>
+    <record id="category_project_final_05_vision" model="nextcloud.document.category">
+        <field name="name">Final Vision Backup</field>
+        <field name="folder_name">05 - Final Vision Backup</field>
+        <field name="model_name">project.project</field>
+        <field name="parent_id" ref="category_project_07_final_documents"/>
+        <field name="sequence">50</field>
+    </record>
+    <record id="category_project_final_06_driver" model="nextcloud.document.category">
+        <field name="name">Final Driver Backup</field>
+        <field name="folder_name">06 - Final Driver Backup</field>
+        <field name="model_name">project.project</field>
+        <field name="parent_id" ref="category_project_07_final_documents"/>
+        <field name="sequence">60</field>
+    </record>
+    <record id="category_project_final_07_hmi" model="nextcloud.document.category">
+        <field name="name">Final HMI Backup</field>
+        <field name="folder_name">07 - Final HMI Backup</field>
+        <field name="model_name">project.project</field>
+        <field name="parent_id" ref="category_project_07_final_documents"/>
+        <field name="sequence">70</field>
+    </record>
+    <record id="category_project_final_08_manuals" model="nextcloud.document.category">
+        <field name="name">Kullanım Kılavuzları</field>
+        <field name="folder_name">08 - Kullanım Kılavuzları</field>
+        <field name="model_name">project.project</field>
+        <field name="parent_id" ref="category_project_07_final_documents"/>
+        <field name="sequence">80</field>
+    </record>
+  </data>
+  <function
+      model="nextcloud.document.category"
+      name="_migrate_default_hierarchy"
+  />
+</odoo>

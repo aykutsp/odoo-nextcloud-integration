@@ -1,0 +1,22 @@
+body.o_nextcloud_no_native_attachment {
+    .o-mail-Chatter,
+    .o-mail-Form-chatter,
+    .o_FormRenderer_chatterContainer,
+    .o_Chatter,
+    .o_chatter {
+        .fa-paperclip,
+        input[type="file"],
+        [data-hotkey="shift+a"],
+        [name="attach"],
+        [name="attachment"],
+        .o_AttachmentBox_buttonAdd,
+        .o-mail-AttachmentBox button,
+        .o-mail-Chatter-attachFiles,
+        .o-mail-Composer-attachFiles,
+        .o-mail-ChatterTopbar-attachments,
+        .o_nextcloud_hide_chatter_attachment {
+            display: none !important;
+            pointer-events: none !important;
+        }
+    }
+}

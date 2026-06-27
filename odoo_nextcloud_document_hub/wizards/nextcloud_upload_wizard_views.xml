@@ -1,0 +1,37 @@
+<odoo>
+    <record id="view_nextcloud_upload_wizard_form" model="ir.ui.view">
+        <field name="name">nextcloud.upload.wizard.form</field>
+        <field name="model">nextcloud.upload.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Nextcloud Dosya Yükle">
+                <group>
+                    <field name="res_model" invisible="1"/>
+                    <field name="res_id" invisible="1"/>
+                    <field name="category_model" invisible="1"/>
+                    <field name="category_required" invisible="1"/>
+                    <field name="res_name" readonly="1"/>
+                    <field name="upload_kind" readonly="1"/>
+                    <field
+                        name="category_id"
+                        invisible="not category_required"
+                        required="category_required"
+                        options="{'no_create': True}"
+                        domain="[('model_name', '=', category_model), ('active', '=', True), ('child_ids', '=', False)]"
+                    />
+                    <field
+                        name="tag_ids"
+                        widget="many2many_tags"
+                        options="{'color_field': 'color'}"
+                    />
+                    <field name="file_data" filename="filename"/>
+                    <field name="filename"/>
+                    <field name="description"/>
+                </group>
+                <footer>
+                    <button name="action_upload" string="Yükle" type="object" class="btn-primary"/>
+                    <button string="Vazgeç" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

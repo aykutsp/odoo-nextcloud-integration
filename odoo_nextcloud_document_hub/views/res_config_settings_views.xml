@@ -1,0 +1,75 @@
+<odoo>
+    <record id="view_nextcloud_config_settings_form" model="ir.ui.view">
+        <field name="name">nextcloud.config.settings.form</field>
+        <field name="model">nextcloud.config.settings</field>
+        <field name="arch" type="xml">
+            <form string="Nextcloud Ayarları" create="false" delete="false">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>Nextcloud Document Hub</h1>
+                    </div>
+                    <field name="name" invisible="1"/>
+                    <group>
+                        <group string="Bağlantı">
+                            <field name="nextcloud_base_url"/>
+                            <field name="nextcloud_username"/>
+                            <field name="nextcloud_app_password" password="True"/>
+                            <field name="nextcloud_webdav_path"/>
+                        </group>
+                        <group string="Dosya Ayarları">
+                            <field name="nextcloud_root_folder"/>
+                            <field name="nextcloud_max_upload_mb"/>
+                            <field name="nextcloud_keep_ir_attachment"/>
+                            <field
+                                name="nextcloud_download_approval_hours"
+                                widget="float_time"
+                            />
+                        </group>
+                    </group>
+                    <div class="alert alert-info" role="alert">
+                        Normal kullanıcı parolası yerine Nextcloud App Password
+                        kullanılması önerilir.
+                    </div>
+                </sheet>
+                <footer>
+                    <button
+                        name="action_save"
+                        type="object"
+                        string="Kaydet"
+                        class="btn-primary"
+                    />
+                    <button
+                        name="action_test_nextcloud_connection"
+                        type="object"
+                        string="Kaydet ve Bağlantıyı Test Et"
+                        class="btn-secondary"
+                    />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_open_nextcloud_config_settings" model="ir.actions.server">
+        <field name="name">Nextcloud Ayarları</field>
+        <field name="model_id" ref="model_nextcloud_config_settings"/>
+        <field name="state">code</field>
+        <field name="code">action = model.action_open_settings()</field>
+    </record>
+
+    <record id="action_nextcloud_config_settings" model="ir.actions.act_window">
+        <field name="name">Nextcloud Ayarları (Teknik)</field>
+        <field name="res_model">nextcloud.config.settings</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_nextcloud_config_settings_form"/>
+        <field name="target">current</field>
+    </record>
+
+    <menuitem
+        id="menu_nextcloud_config_settings"
+        name="Nextcloud Ayarları"
+        parent="base.menu_administration"
+        action="action_open_nextcloud_config_settings"
+        sequence="45"
+        groups="base.group_system"
+    />
+</odoo>

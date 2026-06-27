@@ -1,0 +1,8 @@
+<odoo>
+    <record id="mail_activity_type_nextcloud_download_request" model="mail.activity.type">
+        <field name="name">Dosya Talepleri</field>
+        <field name="summary">Dosya Talepleri</field>
+        <field name="icon">fa-cloud</field>
+        <field name="category">default</field>
+    </record>
+</odoo>

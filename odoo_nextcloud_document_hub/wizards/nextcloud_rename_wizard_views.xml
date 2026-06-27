@@ -1,0 +1,23 @@
+<odoo>
+    <record id="view_nextcloud_rename_wizard_form" model="ir.ui.view">
+        <field name="name">nextcloud.rename.wizard.form</field>
+        <field name="model">nextcloud.rename.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Dosya Adını Değiştir">
+                <group>
+                    <field name="document_id" invisible="1"/>
+                    <field name="name"/>
+                </group>
+                <footer>
+                    <button
+                        name="action_rename"
+                        string="Kaydet"
+                        type="object"
+                        class="btn-primary"
+                    />
+                    <button string="Vazgeç" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

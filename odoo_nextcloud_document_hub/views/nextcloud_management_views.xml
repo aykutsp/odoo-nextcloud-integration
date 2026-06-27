@@ -1,0 +1,223 @@
+<odoo>
+    <record id="view_nextcloud_category_list" model="ir.ui.view">
+        <field name="name">nextcloud.document.category.list</field>
+        <field name="model">nextcloud.document.category</field>
+        <field name="arch" type="xml">
+            <list editable="bottom">
+                <field name="sequence" widget="handle"/>
+                <field name="model_name"/>
+                <field name="parent_id"/>
+                <field name="name"/>
+                <field name="folder_name"/>
+                <field name="complete_name" readonly="1"/>
+                <field
+                    name="allowed_group_ids"
+                    widget="many2many_tags"
+                    options="{'no_create': True}"
+                />
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_nextcloud_categories" model="ir.actions.act_window">
+        <field name="name">Nextcloud Klasör Kategorileri</field>
+        <field name="res_model">nextcloud.document.category</field>
+        <field name="view_mode">list</field>
+    </record>
+
+    <record id="view_nextcloud_tag_list" model="ir.ui.view">
+        <field name="name">nextcloud.document.tag.list</field>
+        <field name="model">nextcloud.document.tag</field>
+        <field name="arch" type="xml">
+            <list editable="bottom">
+                <field name="name"/>
+                <field name="color" widget="color_picker"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_nextcloud_tags" model="ir.actions.act_window">
+        <field name="name">Nextcloud Etiketleri</field>
+        <field name="res_model">nextcloud.document.tag</field>
+        <field name="view_mode">list</field>
+    </record>
+
+    <record id="view_nextcloud_download_request_list" model="ir.ui.view">
+        <field name="name">nextcloud.download.request.list</field>
+        <field name="model">nextcloud.download.request</field>
+        <field name="arch" type="xml">
+            <list create="false" edit="false">
+                <field name="request_date"/>
+                <field name="requester_id"/>
+                <field name="document_name"/>
+                <field name="related_record_name"/>
+                <field name="state" widget="badge"/>
+                <field name="expires_at"/>
+                <button
+                    name="action_open_document"
+                    string="Dosyayı Aç"
+                    type="object"
+                />
+                <button
+                    name="action_approve"
+                    string="Onayla"
+                    type="object"
+                    class="btn-primary"
+                    invisible="state != 'pending'"
+                    groups="odoo_nextcloud_document_hub.group_nextcloud_document_manager,base.group_system"
+                />
+                <button
+                    name="action_reject"
+                    string="Reddet"
+                    type="object"
+                    invisible="state != 'pending'"
+                    groups="odoo_nextcloud_document_hub.group_nextcloud_document_manager,base.group_system"
+                />
+            </list>
+        </field>
+    </record>
+
+    <record id="view_nextcloud_download_request_form" model="ir.ui.view">
+        <field name="name">nextcloud.download.request.form</field>
+        <field name="model">nextcloud.download.request</field>
+        <field name="arch" type="xml">
+            <form string="İndirme Talebi">
+                <header>
+                    <button
+                        name="action_approve"
+                        string="Onayla"
+                        type="object"
+                        class="oe_highlight"
+                        invisible="state != 'pending'"
+                        groups="odoo_nextcloud_document_hub.group_nextcloud_document_manager,base.group_system"
+                    />
+                    <button
+                        name="action_reject"
+                        string="Reddet"
+                        type="object"
+                        invisible="state != 'pending'"
+                        groups="odoo_nextcloud_document_hub.group_nextcloud_document_manager,base.group_system"
+                    />
+                    <field
+                        name="state"
+                        widget="statusbar"
+                        statusbar_visible="pending,approved,rejected,expired"
+                    />
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="document_id" readonly="1"/>
+                            <field name="requester_id" readonly="1"/>
+                            <field name="request_date" readonly="1"/>
+                            <field name="reason" readonly="state != 'pending'"/>
+                        </group>
+                        <group>
+                            <field name="approver_id" readonly="1"/>
+                            <field name="decision_date" readonly="1"/>
+                            <field name="expires_at" readonly="1"/>
+                            <field
+                                name="decision_note"
+                                readonly="state != 'pending'"
+                                groups="odoo_nextcloud_document_hub.group_nextcloud_document_manager,base.group_system"
+                            />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_nextcloud_download_request_search" model="ir.ui.view">
+        <field name="name">nextcloud.download.request.search</field>
+        <field name="model">nextcloud.download.request</field>
+        <field name="arch" type="xml">
+            <search string="İndirme Talepleri">
+                <field name="requester_id"/>
+                <field name="document_name"/>
+                <field name="related_record_name"/>
+                <filter
+                    name="pending"
+                    string="Bekleyen"
+                    domain="[('state', '=', 'pending')]"
+                />
+                <filter
+                    name="approved"
+                    string="Onaylanan"
+                    domain="[('state', '=', 'approved')]"
+                />
+                <filter
+                    name="rejected"
+                    string="Reddedilen"
+                    domain="[('state', '=', 'rejected')]"
+                />
+                <filter
+                    name="expired"
+                    string="Süresi Dolan"
+                    domain="[('state', '=', 'expired')]"
+                />
+                <group expand="0" string="Grupla">
+                    <filter
+                        name="group_state"
+                        string="Durum"
+                        context="{'group_by': 'state'}"
+                    />
+                    <filter
+                        name="group_requester"
+                        string="Talep Eden"
+                        context="{'group_by': 'requester_id'}"
+                    />
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_nextcloud_download_requests" model="ir.actions.act_window">
+        <field name="name">Talep Onayları</field>
+        <field name="res_model">nextcloud.download.request</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{'search_default_pending': 1}</field>
+    </record>
+
+    <record id="action_my_nextcloud_download_requests" model="ir.actions.act_window">
+        <field name="name">İndirme Taleplerim</field>
+        <field name="res_model">nextcloud.download.request</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[('requester_id', '=', uid)]</field>
+    </record>
+
+    <menuitem
+        id="menu_nextcloud_download_requests"
+        name="Talep Onayları"
+        parent="menu_cloud_root"
+        action="action_nextcloud_download_requests"
+        sequence="30"
+        groups="odoo_nextcloud_document_hub.group_nextcloud_document_manager,base.group_system"
+    />
+    <menuitem
+        id="menu_my_nextcloud_download_requests"
+        name="İndirme Taleplerim"
+        parent="menu_cloud_root"
+        action="action_my_nextcloud_download_requests"
+        sequence="20"
+        groups="odoo_nextcloud_document_hub.group_nextcloud_document_viewer,base.group_system"
+    />
+    <menuitem
+        id="menu_nextcloud_categories"
+        name="Nextcloud Klasör Kategorileri"
+        parent="project.menu_project_config"
+        action="action_nextcloud_categories"
+        sequence="95"
+        groups="odoo_nextcloud_document_hub.group_nextcloud_document_manager,base.group_system"
+    />
+    <menuitem
+        id="menu_nextcloud_tags"
+        name="Nextcloud Etiketleri"
+        parent="project.menu_project_config"
+        action="action_nextcloud_tags"
+        sequence="96"
+        groups="odoo_nextcloud_document_hub.group_nextcloud_document_manager,base.group_system"
+    />
+</odoo>

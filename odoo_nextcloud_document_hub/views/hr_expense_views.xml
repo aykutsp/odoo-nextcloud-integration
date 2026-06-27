@@ -1,0 +1,39 @@
+<odoo>
+    <record id="hr_expense_view_form_nextcloud" model="ir.ui.view">
+        <field name="name">hr.expense.form.nextcloud</field>
+        <field name="model">hr.expense</field>
+        <field name="inherit_id" ref="hr_expense.hr_expense_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="inside">
+                <notebook>
+                    <page string="Nextcloud Dosyaları" groups="odoo_nextcloud_document_hub.group_nextcloud_document_viewer,base.group_system">
+                        <group>
+                            <button name="action_nextcloud_upload_wizard" type="object" string="Fiş/Makbuz Yükle" class="btn-primary" groups="odoo_nextcloud_document_hub.group_nextcloud_document_uploader,base.group_system"/>
+                        </group>
+                        <field name="nextcloud_document_ids" nolabel="1" readonly="1">
+                            <list create="false" edit="false">
+                                <field name="name"/>
+                                <field name="category_id"/>
+                                <field name="tag_ids" widget="many2many_tags"/>
+                                <field name="uploaded_by"/>
+                                <field name="upload_date"/>
+                                <field name="state"/>
+                                <field name="is_previewable" column_invisible="True"/>
+                                <field name="can_download" column_invisible="True"/>
+                                <field name="can_request_download" column_invisible="True"/>
+                                <field name="upload_kind"/>
+                                <field name="error_message" string="Hata Nedeni"/>
+                                <field name="nextcloud_path"/>
+                                <button name="action_preview" string="Önizle" type="object" groups="odoo_nextcloud_document_hub.group_nextcloud_document_viewer" invisible="state != 'uploaded' or not is_previewable"/>
+                                <button name="action_rename_wizard" string="Ad Değiştir" type="object" groups="odoo_nextcloud_document_hub.group_nextcloud_document_manager,base.group_system"/>
+                                <button name="action_download" string="İndir" type="object" groups="odoo_nextcloud_document_hub.group_nextcloud_document_viewer,base.group_system" invisible="not can_download"/>
+                                <button name="action_request_download" string="İndirme Talep Et" type="object" groups="odoo_nextcloud_document_hub.group_nextcloud_document_viewer" invisible="not can_request_download"/>
+                                <button name="action_open_nextcloud" string="Nextcloud'da Aç" type="object" groups="odoo_nextcloud_document_hub.group_nextcloud_document_viewer" invisible="state != 'uploaded'"/>
+                            </list>
+                        </field>
+                    </page>
+                </notebook>
+            </xpath>
+        </field>
+    </record>
+</odoo>
