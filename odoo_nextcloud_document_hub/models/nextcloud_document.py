@@ -82,6 +82,18 @@ class NextcloudDocument(models.Model):
         string="CRM Adı",
         compute="_compute_related_info",
     )
+    purchase_code = fields.Char(
+        string="Satın Alma No",
+        compute="_compute_related_info",
+    )
+    purchase_name = fields.Char(
+        string="Satın Alma Adı",
+        compute="_compute_related_info",
+    )
+    vendor_name = fields.Char(
+        string="Tedarikçi",
+        compute="_compute_related_info",
+    )
     attachment_id = fields.Many2one(
         "ir.attachment",
         readonly=True,
@@ -177,6 +189,9 @@ class NextcloudDocument(models.Model):
             document.task_name = False
             document.crm_code = False
             document.crm_name = False
+            document.purchase_code = False
+            document.purchase_name = False
+            document.vendor_name = False
             if document.res_model not in self.env or not document.res_id:
                 continue
             record = self.env[document.res_model].browse(
@@ -191,6 +206,12 @@ class NextcloudDocument(models.Model):
             elif record._name == "crm.lead":
                 document.crm_code = str(record.id)
                 document.crm_name = record.display_name
+            elif record._name == "purchase.order":
+                document.purchase_code = record.name or str(record.id)
+                document.purchase_name = record.display_name
+                document.vendor_name = record.partner_id.display_name
+            elif record._name == "res.partner":
+                document.vendor_name = record.display_name
             elif record._name == "mrp.workorder":
                 document.task_code = str(record.id)
                 document.task_name = record.display_name

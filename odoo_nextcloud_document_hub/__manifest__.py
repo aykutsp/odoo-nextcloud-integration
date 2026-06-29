@@ -1,11 +1,11 @@
 {
     "name": "Nextcloud Document Hub",
-    "summary": "Upload CRM, Project, Task, Delivery and Expense files to Nextcloud WebDAV",
-    "version": "18.0.3.6.0",
+    "summary": "Upload CRM, Project, Task, Purchase, Delivery and Expense files to Nextcloud WebDAV",
+    "version": "18.0.3.7.0",
     "category": "Productivity/Documents",
     "author": "Odoo Nextcloud Integration Contributors",
     "license": "LGPL-3",
-    "depends": ["base", "web", "mail", "crm", "project", "stock", "hr_expense"],
+    "depends": ["base", "web", "mail", "crm", "project", "purchase", "stock", "hr_expense"],
     "external_dependencies": {"python": ["requests"]},
     "data": [
         "security/security.xml",
@@ -21,6 +21,8 @@
         "views/crm_lead_views.xml",
         "views/project_project_views.xml",
         "views/project_task_views.xml",
+        "views/purchase_order_views.xml",
+        "views/res_partner_views.xml",
         "views/stock_picking_views.xml",
         "views/hr_expense_views.xml",
     ],

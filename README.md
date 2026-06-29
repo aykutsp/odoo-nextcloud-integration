@@ -15,7 +15,7 @@ preview, download approval, and record-level visibility inside Odoo.
 
 | Module | Purpose |
 | --- | --- |
-| `odoo_nextcloud_document_hub` | Core integration for CRM Leads, Projects, Tasks, Deliveries, and Expenses. |
+| `odoo_nextcloud_document_hub` | Core integration for CRM Leads, Projects, Tasks, Purchases, Vendors, Deliveries, and Expenses. |
 | `odoo_nextcloud_document_hub_mrp` | Optional extension for Manufacturing Work Orders. |
 
 ## Highlights
@@ -30,8 +30,8 @@ preview, download approval, and record-level visibility inside Odoo.
   trees.
 - Restrict folder categories by Odoo user groups, including inherited parent
   category restrictions.
-- Generate safe, predictable folder paths per CRM, project, task, delivery,
-  expense, and work order.
+- Generate safe, predictable folder paths per CRM, project, task, purchase,
+  vendor, delivery, expense, and work order.
 - Prevent accidental overwrites by automatically suffixing duplicate filenames.
 - Add manual and automatic tags in Odoo and synchronize them to Nextcloud
   System Tags.
@@ -45,6 +45,8 @@ preview, download approval, and record-level visibility inside Odoo.
 - CRM Leads
 - Projects
 - Project Tasks
+- Purchase Orders / RFQs
+- Vendors / Contacts
 - Stock Pickings / Deliveries
 - HR Expenses
 - MRP Work Orders through the optional MRP module
@@ -125,6 +127,8 @@ The integration builds deterministic Nextcloud paths using safe slugs. Examples:
 | Project Task | `odoo/projects/{project-id}-{slug}/tasks/{id}-{slug}` |
 | Standalone Task | `odoo/tasks/{id}-{slug}` |
 | Task Photo | `odoo/projects/{project-id}-{slug}/tasks/{id}-{slug}/photos` |
+| Purchase Order / RFQ | `odoo/purchase/{vendor-id}-{slug}/{purchase-id}-{slug}` |
+| Vendor / Contact | `odoo/partners/{partner-id}-{slug}` |
 | Delivery | `odoo/deliveries/{id}-{slug}` |
 | Expense | `odoo/expenses/{id}-{slug}` |
 | Work Order | `odoo/workorders/{id}-{slug}` |
@@ -136,6 +140,12 @@ be nested into parent and child folders.
 
 When a parent category contains children, users select the final child category
 as the upload destination. Parent group restrictions are inherited by children.
+
+Purchase Order and RFQ forms include a **Nextcloud Files** tab for supplier
+quotes, purchase slips, and related correspondence. Vendor/contact forms also
+include a **Nextcloud Files** tab that combines documents uploaded directly on
+the partner with documents uploaded on that partner's purchase orders, making
+older supplier offers visible from the vendor card.
 
 ## Document Workspace
 

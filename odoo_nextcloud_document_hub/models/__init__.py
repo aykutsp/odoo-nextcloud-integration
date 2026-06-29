@@ -11,3 +11,5 @@ from . import project_project
 from . import project_task
 from . import stock_picking
 from . import hr_expense
+from . import purchase_order
+from . import res_partner

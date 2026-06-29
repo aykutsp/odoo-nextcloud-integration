@@ -1,7 +1,7 @@
 {
     "name": "Nextcloud Document Hub - MRP Work Orders",
     "summary": "Upload MRP work order files to Nextcloud WebDAV",
-    "version": "18.0.3.6.0",
+    "version": "18.0.3.7.0",
     "category": "Manufacturing",
     "author": "Odoo Nextcloud Integration Contributors",
     "license": "LGPL-3",
